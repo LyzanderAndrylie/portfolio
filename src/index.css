@@ -1,1 +1,33 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: PlusJakartaSans;
+  src: url("./assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: PlusJakartaSans;
+  src: url("./assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: PlusJakartaSans;
+  src: url("./assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: PlusJakartaSans;
+  src: url("./assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-Italic.ttf");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@theme {
+  --font-pjs: "PlusJakartaSans", sans-serif;
+}
