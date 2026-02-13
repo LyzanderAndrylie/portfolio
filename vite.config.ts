@@ -13,7 +13,9 @@ export default defineConfig({
     tsconfigPaths(),
     svgr(),
     Sitemap({
-      hostname: "https://lyzanderandrylie.github.io/portfolio/",
+      hostname: "https://lyzanderandrylie.github.io/portfolio",
+      basePath: "/portfolio",
+      exclude: ["/googleb8bc8e60e7172b10"],
     }),
   ],
   base: "/portfolio/",
