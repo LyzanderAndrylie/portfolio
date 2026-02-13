@@ -13,7 +13,7 @@ interface ActiveSectionContextValue {
   activeSection: SectionId;
   setActiveSection: (section: SectionId) => void;
   scrollToSection: (section: SectionId) => void;
-  timeOfLastClick: RefObject<number>;
+  lastClickSectionId: RefObject<SectionId | null>;
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -38,36 +38,51 @@ export function ActiveSectionProvider({ children }: { children: ReactNode }) {
   const [activeSection, setActiveSection] = useState<SectionId>(
     () => initialHashId ?? SECTIONS[0].id,
   );
-  // Ref-based guard: updating a ref doesn't trigger re-renders, so
-  // changing it won't cause every useSectionInView hook to re-evaluate.
-  const timeOfLastClick = useRef(0);
+  const lastClickSectionId = useRef<SectionId | null>(null);
+
+  // Clear the click guard when scrolling finishes
+  useEffect(() => {
+    const handleScrollEnd = () => {
+      lastClickSectionId.current = null;
+    };
+    window.addEventListener("scrollend", handleScrollEnd);
+    return () => window.removeEventListener("scrollend", handleScrollEnd);
+  }, []);
 
   // Scroll to the hash section on initial page load
   useEffect(() => {
     const id = getHashSectionId();
-    if (id) {
-      timeOfLastClick.current = Date.now();
-      // Delay to ensure DOM sections are rendered
-      const timeout = setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          timeOfLastClick.current = Date.now();
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 150);
-      return () => clearTimeout(timeout);
+
+    if (!id) {
+      return;
     }
+
+    const timeout = setTimeout(() => {
+      const element = document.getElementById(id);
+
+      if (!element) {
+        return;
+      }
+
+      lastClickSectionId.current = id;
+      element.scrollIntoView({ behavior: "smooth" });
+    }, 150);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   const scrollToSection = useCallback(
     (id: SectionId) => {
       const element = document.getElementById(id);
-      if (element) {
-        timeOfLastClick.current = Date.now();
-        element.scrollIntoView({ behavior: "smooth" });
-        setActiveSection(id);
-        window.history.replaceState(null, "", `#${id}`);
+
+      if (!element) {
+        return;
       }
+
+      lastClickSectionId.current = id;
+      element.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(id);
+      window.history.replaceState(null, "", `#${id}`);
     },
     [setActiveSection],
   );
@@ -78,7 +93,7 @@ export function ActiveSectionProvider({ children }: { children: ReactNode }) {
         activeSection,
         setActiveSection,
         scrollToSection,
-        timeOfLastClick,
+        lastClickSectionId,
       }}
     >
       {children}

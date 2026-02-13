@@ -1,13 +1,10 @@
 import ProjectCard from "@/components/ProjectCard";
-import SectionHeader from "@/components/SectionHeader";
 import SkillFilterBar from "@/components/SkillFilterBar";
 import { PROJECTS } from "@/data/projects";
-import { useSectionInView } from "@/hooks/useSectionInView";
 import { motion } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 export default function ProjectSection() {
-  const { ref } = useSectionInView("projects");
   const [filterSkill, setFilterSkill] = useState<string | null>(null);
   const innerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState<number | undefined>(undefined);
@@ -28,21 +25,17 @@ export default function ProjectSection() {
 
   useEffect(() => {
     if (!innerRef.current) return;
+
     const observer = new ResizeObserver(([entry]) => {
       setHeight(entry.contentRect.height);
     });
     observer.observe(innerRef.current);
+
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section
-      ref={ref}
-      id="projects"
-      className="mb-16 scroll-mt-24 md:mb-24 lg:mb-36"
-    >
-      <SectionHeader title="Projects" />
-
+    <>
       <SkillFilterBar
         skills={allSkills}
         activeSkill={filterSkill}
@@ -72,6 +65,6 @@ export default function ProjectSection() {
           </ul>
         </div>
       </motion.div>
-    </section>
+    </>
   );
 }

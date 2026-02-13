@@ -1,18 +1,8 @@
-import SectionHeader from "@/components/SectionHeader";
-import { useSectionInView } from "@/hooks/useSectionInView";
-
 import { ExternalLink } from "./ExternalLink";
 
 export default function AboutSection() {
-  const { ref } = useSectionInView("about");
-
   return (
-    <section
-      ref={ref}
-      id="about"
-      className="mb-16 scroll-mt-24 md:mb-24 lg:mb-36"
-    >
-      <SectionHeader title="About" />
+    <>
       <div className="space-y-4 text-base leading-relaxed text-slate-600">
         <p>
           I am passionate about{" "}
@@ -53,6 +43,6 @@ export default function AboutSection() {
           </li>
         </ul>
       </div>
-    </section>
+    </>
   );
 }
