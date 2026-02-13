@@ -34,10 +34,7 @@ function getHashSectionId(): SectionId | null {
 }
 
 export function ActiveSectionProvider({ children }: { children: ReactNode }) {
-  const initialHashId = getHashSectionId();
-  const [activeSection, setActiveSection] = useState<SectionId>(
-    () => initialHashId ?? SECTIONS[0].id,
-  );
+  const [activeSection, setActiveSection] = useState<SectionId>(SECTIONS[0].id);
   const lastClickSectionId = useRef<SectionId | null>(null);
 
   // Clear the click guard when scrolling finishes
@@ -65,6 +62,7 @@ export function ActiveSectionProvider({ children }: { children: ReactNode }) {
       }
 
       lastClickSectionId.current = id;
+      setActiveSection(id);
       element.scrollIntoView({ behavior: "smooth" });
     }, 150);
 
