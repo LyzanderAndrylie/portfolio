@@ -23,7 +23,7 @@ export default function AboutSection() {
           Currently, I am reading{" "}
           <ExternalLink href="">
             "The Things You Can See Only When You Slow Down"
-          </ExternalLink>
+          </ExternalLink>{" "}
           and <ExternalLink href="">"The Miracle Morning"</ExternalLink>. These
           books have significantly shaped my mindset, discipline, and approach
           to productivity. Inspired by their lessons, I am committed to the
