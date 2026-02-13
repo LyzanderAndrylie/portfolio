@@ -51,7 +51,7 @@ export default function Carousel({ items, intervalMs }: CarouselProps) {
                 aria-label={`Go to slide ${idx + 1}: ${item.label}`}
               >
                 {/* Base layer: grey bg + grey text (always rendered) */}
-                <span className="flex items-center justify-center rounded-full bg-slate-200 px-3 py-1 text-slate-500 hover:bg-slate-100 hover:text-blue-600">
+                <span className="flex items-center rounded-full bg-slate-200 px-3 py-1 text-slate-600 hover:bg-slate-100 hover:text-blue-600">
                   {item.label}
                 </span>
 
@@ -75,7 +75,7 @@ export default function Carousel({ items, intervalMs }: CarouselProps) {
           {/* Play / Pause button */}
           <button
             onClick={togglePlay}
-            className="ml-auto flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:bg-slate-100 hover:text-blue-600"
+            className="ml-auto flex h-7 w-7 items-center justify-center rounded-full border border-slate-300 text-slate-500 transition-colors hover:bg-slate-100 hover:text-blue-600"
             aria-label={isPlaying ? "Pause carousel" : "Play carousel"}
           >
             {isPlaying ? <FaPause /> : <FaPlay />}

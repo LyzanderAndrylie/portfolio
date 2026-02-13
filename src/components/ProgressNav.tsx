@@ -19,7 +19,7 @@ export default function ProgressNav() {
               className={`text-xs font-bold tracking-widest uppercase transition-colors ${
                 activeSection === section.id
                   ? "text-blue-600"
-                  : "text-slate-400"
+                  : "text-slate-500"
               }`}
             >
               {section.label}
@@ -44,7 +44,7 @@ export default function ProgressNav() {
               className={`text-xs font-bold tracking-widest uppercase transition-all duration-300 lg:rotate-180 lg:[writing-mode:vertical-rl] 2xl:rotate-0 2xl:[writing-mode:horizontal-tb] ${
                 activeSection === section.id
                   ? "text-blue-600"
-                  : "text-slate-300 group-hover:text-blue-500"
+                  : "text-slate-400 group-hover:text-blue-500"
               }`}
             >
               {section.label}

@@ -30,7 +30,7 @@ export default function CertificationCard({
                 <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                 <span>
                   {certification.title}{" "}
-                  <span className="inline-block text-slate-400">·</span>{" "}
+                  <span className="inline-block text-slate-500">·</span>{" "}
                   {certification.issuer}{" "}
                   <FiArrowUpRight className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1" />
                 </span>

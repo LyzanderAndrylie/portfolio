@@ -14,7 +14,7 @@ export default function SkillFilterBar({
 }: SkillFilterBarProps) {
   return (
     <div className="mb-8 flex flex-wrap items-center gap-2">
-      <span className="mr-2 flex items-center gap-1 text-xs font-bold tracking-wider text-slate-400 uppercase">
+      <span className="mr-2 flex items-center gap-1 text-xs font-bold tracking-wider text-slate-500 uppercase">
         Filter:
       </span>
       <button

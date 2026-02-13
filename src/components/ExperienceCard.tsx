@@ -13,11 +13,11 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
         <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-sm"></div>
 
         <div className="z-10 mt-1 mb-2 text-xs font-semibold tracking-wide text-slate-500 uppercase sm:col-span-2">
-          <div>{experience.date}</div>
-          <div className="mb-4 text-[11px] font-semibold text-slate-400">
+          <div className="text-slate-500">{experience.date}</div>
+          <div className="mb-4 text-[11px] font-light text-slate-500">
             {experience.location}
           </div>
-          <div className="flex h-16 w-16 items-center justify-center rounded-xl border border-slate-200 bg-white text-[10px] font-bold text-slate-400">
+          <div className="flex h-16 w-16 items-center justify-center rounded-xl border border-slate-200 bg-white text-[10px] font-bold">
             <img
               src={experience.imgUrl}
               alt={experience.companyImageLabel}
@@ -38,7 +38,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
                 <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                 <span>
                   {experience.title}{" "}
-                  <span className="inline-block text-slate-400">·</span>{" "}
+                  <span className="inline-block text-slate-500">·</span>{" "}
                   {experience.company}{" "}
                   <FiArrowUpRight className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1" />
                 </span>
