@@ -2,6 +2,17 @@ import type { Experience } from "@/types";
 
 export const EXPERIENCES: Experience[] = [
   {
+    date: "Mar 2026 - Present",
+    title: "Backend Engineer",
+    company: "Stockbit",
+    location: "Jakarta, Indonesia",
+    desc: "-",
+    skills: [],
+    companyImageLabel: "Stockbit Logo",
+    link: "https://stockbit.com/",
+    imgUrl: `${import.meta.env.BASE_URL}companies/stockbit.jpg`,
+  },
+  {
     date: "Aug 2025 - Jan 2026",
     title: "AI Engineer",
     company: "Meeting.ai",

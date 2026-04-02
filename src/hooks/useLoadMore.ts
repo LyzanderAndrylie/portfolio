@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-export function useLoadMore<T>(items: T[], initialCount = 3) {
+export function useLoadMore<T>(items: T[], initialCount = 4) {
   const [visibleCount, setVisibleCount] = useState(initialCount);
 
   const visibleItems = items.slice(0, visibleCount);
